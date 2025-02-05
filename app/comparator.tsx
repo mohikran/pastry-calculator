@@ -1,23 +1,28 @@
-import ReactDOM from 'react-dom/client'
-import Cylinder from './cylinder'
 import { useState } from 'react'
+import Cylinder from './cylinder'
+
 const Comparator = () => {
   const [cylinder1, setcylinder1] = useState({ rayon: '', hauteur: '' })
   const [cylinder2, setcylinder2] = useState({ rayon: '', hauteur: '' })
-  const [resultat, setResultat] = useState(null)
-
+  const [resultat, setResultat] = useState<{
+    volume1: number
+    volume2: number
+    pourcentageComparaison: string
+  } | null>(null)
+  
   const calculerVolume = (rayon: number, hauteur: number) => {
     return Math.PI * Math.pow(rayon, 2) * hauteur
   }
 
-  const handleChange = (event, cylinder) => {
-    const { name, value } = event.target
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>, cylinder: number) => {
+    const { name, value } = event.target;
     if (cylinder === 1) {
-      setcylinder1({ ...cylinder1, [name]: value })
+      setcylinder1({ ...cylinder1, [name]: value });
     } else {
-      setcylinder2({ ...cylinder2, [name]: value })
+      setcylinder2({ ...cylinder2, [name]: value });
     }
-  }
+  };
+  
 
   const comparerVolumes = () => {
     const volume1 = calculerVolume(parseFloat(cylinder1.rayon), parseFloat(cylinder1.hauteur))
