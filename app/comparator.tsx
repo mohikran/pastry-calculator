@@ -1,3 +1,4 @@
+'use client';  // Ajoute cette ligne en haut du fichier
 import { useState } from 'react'
 import Cylinder from './cylinder'
 
