@@ -1,10 +1,9 @@
-import Image from "next/image";
-import Comparator from "./comparator";
+import Comparator from './comparator'
 
 export default function Home() {
-  return (
-    <>
-    <Comparator></Comparator>
-    </>
-  );
+    return (
+        <>
+            <Comparator></Comparator>
+        </>
+    )
 }
